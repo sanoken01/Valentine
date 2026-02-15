@@ -1,8 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import DomeGallery from '@/components/DomeGallery';
-import InteractionFlow from '@/components/InteractionFlow';
+import dynamic from 'next/dynamic';
+
+const DomeGallery = dynamic(() => import('@/components/DomeGallery'), {
+  ssr: false,
+});
+
+const InteractionFlow = dynamic(() => import('@/components/InteractionFlow'), {
+  ssr: false,
+});
 
 export default function Home() {
   const [showGallery, setShowGallery] = useState(false);
